@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <title>Bookstore | {{ book.title }}</title>
+{% endblock %}
+
+{% block container %}
+    <div class="main-box">
+        <header>
+            <h1>{{ book.title }}</h1>
+        </header>
+        <a href="{% url 'book:index' %}">Back</a>
+        <p>{{ book.summary }}</p>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <a href="#">Términos y condiciones</a>
+    </footer>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <title>My bookstore</title>
+    <link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+{% endblock %}
+
+{% block container %}
+    <div class="main-box">
+        <header>
+            <h1>My bookstore</h1>
+        </header>
+
+        <main>
+            {% if book_list %}
+                <ul>
+                    {% for book in book_list %}
+                        <li><a href="{% url 'book:detail' book.id %}">{{ book.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No books are available.</p>
+            {% endif %}
+        </main>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <a href="#">Términos y condiciones</a>
+    </footer>
+{% endblock %}
